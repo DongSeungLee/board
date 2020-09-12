@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: local
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /static/**
+    resources:
+      static-locations: classpath:/static/
+      add: mappings=true
+  redis:
+    port: 6379
+server:
+  port: 8080

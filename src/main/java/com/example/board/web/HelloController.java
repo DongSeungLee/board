@@ -3,20 +3,27 @@ package com.example.board.web;
 import com.example.board.domain.posts.Posts;
 import com.example.board.domain.posts.PostsRepository;
 import com.example.board.dto.HelloResponseDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import sun.text.normalizer.ICUBinary;
 
 import java.util.List;
 
 @RestController
+@Slf4j
 public class HelloController {
     @Autowired
     PostsRepository postsRepository;
 
     @GetMapping("/hello")
     public String hello() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        log.info("/hello auth : {}",auth);
         return "hello";
     }
 

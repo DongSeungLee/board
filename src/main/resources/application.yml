@@ -11,7 +11,9 @@ spring:
     open-in-view: false
   h2:
     console:
-      enable: true
+      enabled: true
+  session:
+    store-type: jdbc
 server:
   port: 8060
 

@@ -86,6 +86,19 @@
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
             <version>2.3.0.RELEASE</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-jdbc -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-jdbc</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <version>5.3.2.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

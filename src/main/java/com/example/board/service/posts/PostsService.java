@@ -56,4 +56,10 @@ public class PostsService {
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
+    public void validation(Long id){
+        if(id == null){
+            throw new IllegalArgumentException("invalid id!"+String.valueOf(id));
+        }
+        postsRepository.validation();
+    }
 }

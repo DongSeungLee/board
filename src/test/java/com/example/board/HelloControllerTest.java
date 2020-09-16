@@ -1,5 +1,6 @@
 package com.example.board;
 
+import WithMockVendor.WithMockVendorUser;
 import com.example.board.config.auth.SecurityConfig;
 import com.example.board.domain.posts.Posts;
 import com.example.board.domain.posts.PostsRepository;
@@ -70,11 +71,11 @@ public class HelloControllerTest {
                 .andExpect(jsonPath("$.name", is(name)))
                 .andExpect(jsonPath("$.amount", is(amount)));
     }
-
+    // apply customized security user!
     @Test
-    @WithMockUser(roles = "USER")
+    //@WithMockUser(roles = "USER")
+    @WithMockVendorUser(roles="USER")
     public void returnPostsTest() throws Exception {
-
         mvc.perform(get("/posts/All"))
                 .andExpect(status().isOk())
                 .andDo(print());

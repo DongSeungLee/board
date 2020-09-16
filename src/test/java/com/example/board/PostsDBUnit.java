@@ -75,5 +75,8 @@ public class PostsDBUnit {
         // 이는 expectedValue에 있을 때를 기준으로 한다.
         // LocalDateTime은 무시한다!
         assertReflectionEquals(entity1,entity2,IGNORE_DEFAULTS, LENIENT_DATES);
+        
+        // prperty 비교
+        assertPropertyLenientEquals("title","title6",entity1);
     }
 }

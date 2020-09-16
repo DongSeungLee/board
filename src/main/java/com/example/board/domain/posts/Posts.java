@@ -4,12 +4,14 @@ import com.example.board.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Entity
+@Setter
 public class Posts extends BaseTimeEntity {
 
     @Id

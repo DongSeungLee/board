@@ -17,11 +17,14 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.unitils.reflectionassert.ReflectionComparatorMode;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-
+import static org.unitils.reflectionassert.ReflectionAssert.*;
+import static org.unitils.reflectionassert.ReflectionComparatorMode.IGNORE_DEFAULTS;
+import static org.unitils.reflectionassert.ReflectionComparatorMode.LENIENT_DATES;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -53,5 +56,24 @@ public class PostsDBUnit {
         Long id = postsRepository.save(entity).getId();
         entityManager.detach(entity);
         System.out.println(postsRepository.findById(id).orElseThrow(()->new IllegalArgumentException()));
+    }
+    @Test
+    public void testUnitilsReflectionEquals(){
+        Posts entity1 = Posts.builder()
+                .title("title6")
+                .content("content6")
+                .author("author6")
+                .build();
+        Posts entity2 = Posts.builder()
+                .title("title6")
+                .content("content6")
+                .author("author6")
+                .build();
+        postsRepository.save(entity2);
+        entityManager.detach(entity2);
+        // IGNORE_DEFAULTS 기본형에 대한 값 여기서 Long이 null이라서 비교하지 않는다.
+        // 이는 expectedValue에 있을 때를 기준으로 한다.
+        // LocalDateTime은 무시한다!
+        assertReflectionEquals(entity1,entity2,IGNORE_DEFAULTS, LENIENT_DATES);
     }
 }

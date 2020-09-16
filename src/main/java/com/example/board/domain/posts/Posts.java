@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-@Setter
 public class Posts extends BaseTimeEntity {
 
     @Id

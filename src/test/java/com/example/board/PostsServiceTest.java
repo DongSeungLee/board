@@ -69,16 +69,7 @@ public class PostsServiceTest {
 
         postsService.delete(2L);
     }
-    @Test(expected = IllegalArgumentException.class)
-    public void testValidation(){
-        Long id = 2L;
-        // mock when void method!
-        // doThrow!
-        doThrow(new IllegalArgumentException()).when(mockPostsRepository).validation();
 
-        postsService.validation(id);
-
-    }
     @Test
     public void spyTest(){
         List<String> realList = new ArrayList<>();

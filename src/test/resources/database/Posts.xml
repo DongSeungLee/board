@@ -1,0 +1,7 @@
+<dataset>
+    <Posts id="1" title="title1" content="content1" author="author1"></Posts>
+    <Posts id="2" title="title2" content="content2" author="author2"></Posts>
+    <Posts id="3" title="title3" content="content3" author="author3"></Posts>
+    <Posts id="4" title="title4" content="content4" author="author4"></Posts>
+    <Posts id="5" title="title5" content="content5" author="author5"></Posts>
+</dataset>

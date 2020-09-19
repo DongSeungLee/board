@@ -33,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class HelloControllerTest {
     @Autowired
     private MockMvc mvc;
-
+    // mockbean은 IoC에 Bean객체가 없으면 mockBean을 만들어서 담는 것이다.
     @MockBean
     private PostsRepository postsRepository;
 

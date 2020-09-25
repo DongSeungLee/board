@@ -15,7 +15,7 @@ spring:
   session:
     store-type: jdbc
 server:
-  port: 8080
+  port: 8060
 
   datasource:
     url: jdbc:mariadb://freelec-board-12.cerng6shgt9g.ap-northeast-2.rds.amazonaws.com:3306
@@ -23,6 +23,14 @@ server:
     password: reason9347
     driver-class-name: org.mariadb.jdbc.Driver
 
+proxy:
+  server:
+    request-id-header-name: X-Request-Id
 
-
-
+log:
+  config:
+    path: logs/local
+    filename: local_log
+logging:
+  level:
+    root: INFO

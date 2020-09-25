@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import sun.text.normalizer.ICUBinary;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        log.info("/hello auth : {}",auth);
+        log.info("/hello auth : {}", auth);
         return "hello";
     }
 
